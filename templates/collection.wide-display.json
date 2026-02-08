@@ -14,7 +14,29 @@
         "color_subheading": "#ffffff"
       }
     },
-    "24ff8b99-cc93-4489-af1e-4d3a3b25625f": {
+    "main": {
+      "type": "main-collection-grid",
+      "disabled": true,
+      "settings": {
+        "show_filter": true,
+        "show_sort": false,
+        "per_row": 3,
+        "per_page": 24,
+        "aspect_ratio": "square"
+      }
+    },
+    "featured": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "collection": "",
+        "title": "Featured collection",
+        "per_row": 3,
+        "rows": 1,
+        "aspect_ratio": "natural"
+      }
+    },
+    "752b2de0-4594-4b9a-8b0f-f592d2e33f67": {
       "type": "main-collection-grid-wide",
       "settings": {
         "show_filter": true,
@@ -28,6 +50,6 @@
     "intro",
     "main",
     "featured",
-    "24ff8b99-cc93-4489-af1e-4d3a3b25625f"
+    "752b2de0-4594-4b9a-8b0f-f592d2e33f67"
   ]
 }
