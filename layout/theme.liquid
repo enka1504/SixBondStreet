@@ -72,6 +72,7 @@
       {% when 'product' %}
         {{ 'product-page.css' | asset_url | stylesheet_tag }}
         {{ 'clerk_product.css' | asset_url | stylesheet_tag }}
+        <script src="https://js.charpstar.net/sbs/charpstar-AR-sbs.js"></script>
       {% when 'index' %}
         {{ 'index.scss.css' | asset_url | stylesheet_tag }}
         {{ 'clerk_index.css' | | asset_url | stylesheet_tag }}
@@ -111,7 +112,23 @@
     });
   </script>
   <!-- End of Clerk.io E-commerce Personalisation tool - www.clerk.io -->
-  
+<!-- Start of Sleeknote signup and lead generation tool - www.sleeknote.com -->
+<script id="sleeknoteScript" type="text/javascript">
+	(function () {
+		var sleeknoteScriptTag = document.createElement("script");
+		sleeknoteScriptTag.type = "text/javascript";
+		sleeknoteScriptTag.charset = "utf-8";
+		sleeknoteScriptTag.src = ("//sleeknotecustomerscripts.sleeknote.com/21977.js");
+		var s = document.getElementById("sleeknoteScript");
+		s.parentNode.insertBefore(sleeknoteScriptTag, s);
+	})();
+</script>
+<!-- End of Sleeknote signup and lead generation tool - www.sleeknote.com --><!--Gem_Page_Header_Script-->
+  {% render 'gem-app-header-scripts' %}
+  <!--End_Gem_Page_Header_Script-->
+  <!-- UET Tag for Microsoft Ads -->
+  <script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"343039460", enableAutoSpaTracking: true};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
+  <!-- End UET Tag for Microsft Ads -->
   </head>
 
   <body class="
@@ -192,19 +209,22 @@
 
     {% if useCustomEvents %}
     <script src="{{ 'custom-events.js' | asset_url }}"></script>
-    {% endif %}
-  {% render 'livechat' %}
-  {% comment %} Clerk.io instant search code {% endcomment %}
-  <span 
-    class="clerk" 
-    data-template="@live-search"
-    data-instant-search-suggestions="6"
-    data-instant-search-categories="6"
-    data-instant-search-pages="6" 
-    data-instant-search='.quick-search__input, .drawer-menu__search-input'
-    data-instant-search-positioning='center'>
-  </span>
-  {% comment %} End of Clerk.io instant search code {% endcomment %}
+    {% endif %} 
+    <!--Gem_Page_Footer_Script-->
+    {% render 'gem-app-footer-scripts', GEM_FOOTER_SCRIPT: GEM_FOOTER_SCRIPT %}
+    <!--End_Gem_Page_Footer_Script-->
+    {% render 'liveagent-chatbubble' %}
+    {% comment %} Clerk.io instant search code {% endcomment %}
+    <span 
+      class="clerk" 
+      data-template="@live-search"
+      data-instant-search-suggestions="6"
+      data-instant-search-categories="6"
+      data-instant-search-pages="6" 
+      data-instant-search='.quick-search__input, .drawer-menu__search-input'
+      data-instant-search-positioning='center'>
+    </span>
+    {% comment %} End of Clerk.io instant search code {% endcomment %}
   </body>
 
 </html>
