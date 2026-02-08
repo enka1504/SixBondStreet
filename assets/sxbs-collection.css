@@ -13,10 +13,44 @@
     width: 260px;
     margin-right: 25px;
     flex-shrink: 0;
+}@media (min-width: 40em) {
+    .s-inline-section {
+        margin: calc(var(--spacing-unit)*6) 0;
+    }
+}
+@media (min-width: 40em) {
+    .s-inline-section {
+        margin: 0 0 var(--spacing-large) 0;
+    }
 }
 @media screen and (min-width: 78em) {
     .collection__main-area {
         max-width: calc(100% - 285px);
         width: calc(100% - 285px);
     }
+}
+/* Collection banner icons */
+.collection-banner {
+    position: absolute;
+    top: 14px;
+    left: 24px;
+    width: 70px;
+    display: block;
+    z-index: 2;
+}
+.collection-banner span {
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #EFEFEF;
+    font-weight: 300;
+}
+.collection-banner svg {
+    position: initial;
+    width: 100%;
+}
+.collection-top-bar__filters .collection-in-stock__toggle {
+    min-width: 220px;
+    align-items: center;
 }
