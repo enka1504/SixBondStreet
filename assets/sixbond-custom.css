@@ -6,6 +6,21 @@
     --sxbs-sale-color: #e36f21;
     /* Based on the Hermes Orange */
     --sxbs-accent-color: #F3F1EB;
+    --sxbs-dark-grey: #29292c;
+    --max-width:2000px;
+    --max-width-small-page:600px;
+
+    --spacing-unit:3px;
+
+    --spacing-none:0px;
+    --spacing-extra-small:calc(var(--spacing-unit) * 2);
+    --spacing-small:calc(var(--spacing-unit) * 3);
+    --spacing-medium:calc(var(--spacing-unit) * 5);
+    --spacing-medium-large:calc(var(--spacing-unit) * 7);
+    --spacing-large:calc(var(--spacing-unit) * 10);
+    --spacing-extra-large:calc(var(--spacing-unit) * 12);
+    --spacing-extra-extra-large:calc(var(--spacing-unit) * 20);
+    --space-outer:20px;
 }
 
 ::selection {
@@ -51,13 +66,37 @@ span.on-sale.saved_percentage {
     text-decoration: none;
 }
 
-
+/* Clerk Product Recommendations */
+.clerk_product_image, .clerk_product_hover_image {
+    max-height: 100%;
+    height: auto;
+}
+.clerk_image_wrapper {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.clerk_image_wrapper::after {
+    content: "";
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-bottom: 100%;
+    background: rgb(71 47 0 / 4%);
+    z-index: 95;
+}
+.clerk_product_name {
+    margin-top: 0;
+}
+/* End Clerk Product Recommendations */
 /* Product Page */
 
 span.dom-message {
     margin-bottom: var(--spacing-large);
     display: inline;
-    font-size: 14px;
+    /*font-size: 14px;*/
     margin-top: -14px;
 }
 
@@ -67,18 +106,6 @@ span.dom-message {
 
 .fs-body-base {
     max-width: 90vw;
-}
-
-.secondary-gallery .product__media-item {
-    width: calc(100% / 3);
-    float: left;
-}
-
-.product__media-container.secondary-gallery.desktop-only {
-    width: 100%;
-    margin-top: 16px;
-    margin-left: 0;
-    margin-right: 0;
 }
 
 .mobile-only {
@@ -101,6 +128,7 @@ a.btn.btn--primary,
 .filter-item a,
 .collection-top-bar__filters a,
 .collection-top-bar a {
+    line-height: 1.2rem;
     text-decoration: none;
 }
 
@@ -143,6 +171,7 @@ a.btn.btn--primary,
 .variant__option {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .variant__option .product__color-swatch {
@@ -235,6 +264,7 @@ form.product-form .product-form__controls-group::-webkit-scrollbar-thumb {
     clip-path: circle();
     margin-top: 0px;vertical-align: middle;
     display: inline-block;
+
 }
 
 .variant_info .in_stock__variant_orb {
@@ -255,12 +285,23 @@ form.product-form .product-form__controls-group::-webkit-scrollbar-thumb {
 .trigger_orb {
     display: inline-block
 }
-
+/*
   .collection-in-stock__toggle .in_stock_toggle.inactive + .in_stock__variant_orb .in_stock__variant_orb_inner{background:transparent}
   .collection-in-stock__toggle .in_stock_toggle.inactive + .in_stock__variant_orb{
   
   background:transparent
   }
+*/
+/* clerk display of orb */
+.stock_clerk_dot {
+    display: flex;
+    width: 100%;
+}
+.stock_clerk_dot .in_stock__variant_orb {
+    display: block;
+    margin-left: auto;
+    align-self: center;
+}
 /* Collapsible menus */
 
 .collapsible-button {
@@ -619,13 +660,13 @@ a#in-stock {
 
 
 /* Tablet size Filter Styling */
-
+/*
 @media (min-width:40em) and (max-width: 60em) {
     .collection__sidebar {
         width: 160px;
     }
 }
-
+*/
 
 /* Remove default Badges */
 
@@ -723,7 +764,9 @@ svg.ais-SearchBox-submitIcon {
 
 
 /* Filters/Facets */
-
+.collection-modal__footer .btn {
+    line-height: 16px;
+}
 .search .ais-facets-button {
     /* Mobile only button */
     border-radius: 15px;
@@ -1019,63 +1062,22 @@ img.tippy-image__tooltip {
     border-radius: 5px;
 }
 
+/* Clerk search specific styling */
 
-/* Instant search */
-
-body .aa-dropdown-menu-size-lg .aa-columns-container {
-    background-color: #29292c;
-    height: 400px;
+.product_vendor, .clerk_instant_search_product_name, .clerk_instant_search_product_price_wrap {
+    min-height: 5px;
+    height: auto;
+    margin: 0
 }
-
-body .aa-dropdown-menu .aa-product-info,
-body .aa-dropdown-menu .aa-product-price {
-    color: white;
+.clerk_instant_search_load_more_btn, .clerk_instant_search_title {
+    background: var(--sxbs-dark-grey);
 }
-
-body .aa-dropdown-menu .aa-products-empty .aa-no-result {
-    color: white;
-}
-
-body .aa-dropdown-menu a,
-body .aa-dropdown-menu a:hover,
-body .aa-dropdown-menu a:focus,
-body .aa-dropdown-menu a:active {
-    color: white;
-    font-weight: bold;
-}
-
-body .aa-dropdown-menu .aa-collections-header,
-body .aa-dropdown-menu .aa-articles-header,
-body .aa-dropdown-menu .aa-pages-header {
-    color: white;
-}
-
-body .aa-dropdown-menu .aa-highlight {
-    color: white;
-    font-weight: bold;
-}
-
-.algolia-autocomplete .aa-dropdown-menu .aa-footer {
-    background-color: #29292c;
-}
-
-
-/* moving the algolia search block up and to the right*/
-
-body span.algolia-autocomplete,
-.algolia-autocomplete {
-    position: fixed !important;
-    background: #29292c;
-    color: white;
-    border: none;
-    width: 355px !important;
-    max-width: calc(100vw - 50px);
-    left: 0 !important;
-}
-
 
 /* more specific version for hiding shopify results in instant search */
 
+.drawer-menu__search-results.visible {
+    display: none;
+}
 .quick-search__container .quick-search__results {
     height: 0px;
     overflow: hidden;
@@ -1095,8 +1097,15 @@ body .aa-dropdown-menu .aa-cursor {
 }
 
 body .quick-search.active.visible {
-    width: 70vw;
+    border-radius: 25px;
+    width: 600px;
     max-width: calc(100vw - 50px);
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    overflow: hidden;
 }
 
 
@@ -1114,19 +1123,6 @@ the shopping cart and the hamburger menu has the same class name */
         display: none;
     }
 }
-
-
-/* move the section with collection, blogpost etc. to the right*/
-
-.aa-dropdown-menu-size-xs .aa-without-powered-by .aa-left-column,
-.aa-dropdown-menu-size-sm .aa-without-powered-by .aa-left-column {
-    padding: 0 24px;
-}
-
-.aa-dataset-products .aa-right-column {
-    padding: 24px 12px 0 24px;
-}
-
 
 /* footer start */
 
@@ -1204,13 +1200,22 @@ input#Email {
     max-width: 800px;
     margin: auto;
 }
-
+.trygg-certificate-box {
+    right: 110px!important;
+    left: auto!important;
+    top: -105px!important;
+}
 @media (min-width:60em) {
     .extended-footer .extended-footer-groups .extended-100 {
         padding: 65px 20%;
     }
   body.template-product  .blog-posts.s-inline-section{margin-top:0}
   .blog-posts.description.s-inline-section{padding:0!important}
+  .trygg-certificate-box {
+        right: auto!important;
+        top: -0!important;
+        left: -214px!important;
+    }   
 }
 
 @media (max-width: 40em) {
@@ -1230,7 +1235,24 @@ input#Email {
         flex: 100%;
     }
 }
-
+ul.social_icons {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: center;
+    padding: 0 0 12px 0;
+}
+ul.social_icons li {
+    display: block;
+}
+ul.social_icons li a img {
+    max-width: 30px;
+    margin: 0 3px;
+}
+.footer__credits {
+    display: flex;
+    justify-content: center;
+}
 
 /* Tryg E-Handel */
 
@@ -1310,7 +1332,7 @@ img#trygg-logo {
     body span.algolia-autocomplete {
         width: 70vw !important;
         max-width: calc(100vw - 50px);
-        right: 133.1px !important;
+        right: 133px !important;
         left: auto !important;
     }
 }
@@ -1446,4 +1468,8 @@ img#trygg-logo {
   .algolia-autocomplete > .aa-dropdown-menu > .aa-columns-container .aa-product-info {
     white-space: normal;
   }
+}
+.cart__item-qty-selector {
+    display: flex;
+    flex-direction: row;
 }

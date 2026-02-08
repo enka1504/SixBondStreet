@@ -8244,10 +8244,14 @@
     const input = n$1('[data-input]', node);
     const clear = n$1('[data-clear]', node);
     const resultsContainer = n$1('[data-results]', node);
-//     const focusTrap = createFocusTrap(node); // This gets replaced with a focus trapping util on `open` however
-//     const overlayClick = e$2(overlay, 'click', close);
+      var focusTrap = createFocusTrap(node, {
+      allowOutsideClick: true,
+       escapeDeactivates: false
+    });
+    // const focusTrap = createFocusTrap(node); // This gets replaced with a focus trapping util on `open` however
+    const overlayClick = e$2(overlay, 'click', close);
 //     const clearClick = e$2(clear, 'click', reset);
-//     const keyDown = e$2(node, 'keydown', checkEscape);
+    const keyDown = e$2(node, 'keydown', checkEscape);
 //     const inputChange = e$2(input, 'input', handleInput);
 //     const predictiveSearch = new PredictiveSearch(resultsContainer);
     
@@ -8285,9 +8289,10 @@
     }
 
     function open() {
+
       u(node, classes$5.active);
       setTimeout(() => {
-        //focusTrap.activate();
+        focusTrap.activate();
         disableBodyScroll(node, {
           reserveScrollBarGap: true
         });
@@ -8296,6 +8301,7 @@
     }
 
     function close() {
+
       i$1(node, classes$5.visible);
       setTimeout(() => {
         i$1(node, classes$5.active);
@@ -12024,7 +12030,7 @@
           adaptiveHeight: true,
           cellSelector: selectors.slide,
           initialIndex: '.initial',
-          pageDots: false,
+          pageDots: true,
           prevNextButtons: false,
           watchCSS: true,
           wrapAround: true,
@@ -12106,7 +12112,7 @@
                   document.querySelector(".trigger_orb").style.display="inline-block";
                 } else {
                   document.querySelector(".variant-inventory").style.display="none";
-                  document.querySelector(".dom-message").style.display="inline";
+                  document.querySelector(".dom-message").style.display="flex";
                   document.querySelector(".trigger_orb").style.display="none";
                 }
 
