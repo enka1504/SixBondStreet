@@ -35,15 +35,23 @@
     <div class="quick-cart__cart visible" data-cart data-scroll-lock-ignore>
       <div class="quick-cart__header">{{ 'quick_cart.cart' | t }}</div>
       
-      
-         <p class="Text--subdued" id="paid-shipping">
-      Handle for <span id="remaining_amount">
-      {{ cart.total_price | minus: threshold_in_cents | abs | money_without_trailing_zeros }}</span>
-      kr mer og få gratis frakt!
-
-    </p>
-       <p class="Text--subdued " id="free-shipping">Gratis frakt!</p>
-      
+      {% unless threshold_in_cents < 1  %}
+        <p class="Text--subdued" id="paid-shipping">
+        Handle for <span id="remaining_amount">
+        {{ cart.total_price | minus: threshold_in_cents | abs | money_without_trailing_zeros }}</span>
+        kr mer og få gratis frakt!
+        </p>
+        <p class="Text--subdued " id="free-shipping">Gratis frakt!</p>
+      {% else %}
+        <div style="display: none;">
+          <p class="Text--subdued" id="paid-shipping" style="display: none;">
+          Handle for <span id="remaining_amount">
+          {{ cart.total_price | minus: threshold_in_cents | abs | money_without_trailing_zeros }}</span>
+          kr mer og få gratis frakt!
+          </p>
+          <p class="Text--subdued " id="free-shipping" style="display: none;">Gratis frakt!</p>
+        </div>
+      {% endunless %}
       
       
       <div class="quick-cart__items" data-items></div>

@@ -1,0 +1,26 @@
+<section class="AR-3D">
+    <script src="https://js.charpstar.net/sbs/model-viewer-sbs.js"></script>
+    <div class="model-viewer-wrapper">
+        <model-viewer id="threeDViewer" src="{{sku}}"
+            shadow-intensity="1.55" shadow-softness="1" environment-image="https://js.charpstar.net/sbs/sbs-hdri.hdr">
+            <div id ="charpstarViewerControls">
+                <div>
+                    Variant: <select id="charpstarViewerVariant"></select> 
+                </div>
+            </div>
+        </model-viewer>
+    </div>
+</section>
+{{ 'charpstar.css' | asset_url | stylesheet_tag }}
+<style type="text/css">
+    #charpstarViewerControls div::after {
+        content: '';
+        background-image: url(//cdn.shopify.com/s/files/1/0582/7490/6309/t/162/assets/chevron.svg?v=8477239…);
+        display: block;
+        width: 10px;
+        height: 10px;
+        background-size: 10px 10px;
+        position: relative;
+        margin-left: -18px;
+    }
+</style>
